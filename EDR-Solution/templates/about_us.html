@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our EDR Project</title>
+
+    <!-- CSS Styling -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .feature-box {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 6px solid #007BFF;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .feature-description {
+            font-size: 16px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p, .feature-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        About Our EDR Project
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="container">
+
+        <!-- Introduction Section -->
+        <div class="section">
+            <h1>Welcome to Our Endpoint Detection and Response (EDR) Solution</h1>
+            <p>
+                Our EDR (Endpoint Detection and Response) project is designed to provide lightweight yet powerful protection against cyber threats. Built entirely in Python, this host-based solution offers advanced detection, alert mechanisms, and system monitoring—all while maintaining excellent performance and security. 
+            </p>
+            <p>
+                Unlike cloud-based EDR solutions, our software is designed to work completely offline, ensuring that sensitive data never leaves your local machine. This makes it an ideal choice for environments where privacy and security are paramount.
+            </p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="section">
+            <h2>🔍 Key Features</h2>
+
+            <!-- URL Scan -->
+            <div class="feature-box">
+                <div class="feature-title">1. URL Scan</div>
+                <div class="feature-description">
+                    Real-time URL scanning to detect and block malicious websites before they can cause harm. Powered by the VirusTotal API for accurate and up-to-date threat intelligence.
+                </div>
+            </div>
+
+            <!-- File Scan -->
+            <div class="feature-box">
+                <div class="feature-title">2. File Scan</div>
+                <div class="feature-description">
+                    Scan files using their MD5 hash without uploading them—ensuring your data remains private while protecting you from malware infections.
+                </div>
+            </div>
+
+            <!-- Desktop Alert Mechanism -->
+            <div class="feature-box">
+                <div class="feature-title">3. Desktop Alert Mechanism</div>
+                <div class="feature-description">
+                    Receive immediate desktop notifications for any suspicious activities detected, such as unsafe connections or high CPU usage.
+                </div>
+            </div>
+
+            <!-- Insecure Connection Detection -->
+            <div class="feature-box">
+                <div class="feature-title">4. Insecure Connection Detection</div>
+                <div class="feature-description">
+                    Detect and block insecure network connections, protecting against untrusted or malicious IP addresses in real-time.
+                </div>
+            </div>
+
+            <!-- Bulk File Deletion Detection -->
+            <div class="feature-box">
+                <div class="feature-title">5. Bulk File Deletion Detection</div>
+                <div class="feature-description">
+                    Monitor file deletions and receive alerts when an unusually large number of files are deleted, helping detect ransomware early.
+                </div>
+            </div>
+
+            <!-- Log File Deletion Detection -->
+            <div class="feature-box">
+                <div class="feature-title">6. Log File Deletion Detection</div>
+                <div class="feature-description">
+                    Get notified if critical log files are deleted—a common tactic used by attackers to cover their tracks.
+                </div>
+            </div>
+
+            <!-- CPU Usage Spike Detection -->
+            <div class="feature-box">
+                <div class="feature-title">7. CPU Usage Spike Detection</div>
+                <div class="feature-description">
+                    Monitor unexpected CPU usage spikes, which may indicate malware, cryptojacking, or unauthorized processes.
+                </div>
+            </div>
+
+            <!-- Lightweight and Secure -->
+            <div class="feature-box">
+                <div class="feature-title">8. Lightweight, Host-Based Security</div>
+                <div class="feature-description">
+                    Runs completely on your local machine without cloud interactions, improving both security and performance.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Minimum System Requirements Section -->
+        <div class="section">
+            <h2>🖥️ Minimum System Requirements</h2>
+            <p>Our EDR project is designed to run efficiently even on low-end systems, ensuring that everyone can benefit from strong endpoint protection without compromising system performance.</p>
+            <ul>
+                <li><strong>Operating System:</strong> Windows 7, 8, 10, 11 (64-bit)</li>
+                <li><strong>Processor:</strong> 1 GHz or faster</li>
+                <li><strong>RAM:</strong> 2 GB minimum (4 GB recommended)</li>
+                <li><strong>Storage:</strong> 100 MB of free disk space</li>
+                <li><strong>Internet Connection:</strong> Required for VirusTotal API checks</li>
+                <li><strong>Python Version:</strong> 3.8 or higher</li>
+            </ul>
+        </div>
+
+        <!-- Why Choose Our EDR Section -->
+        <div class="section">
+            <h2>🚀 Why Choose Our EDR Project?</h2>
+            <p>Our project stands out for its simplicity, efficiency, and focus on security-first principles:</p>
+            <ul>
+                <li>✅ No cloud storage interactions—maximum privacy.</li>
+                <li>✅ Fast, lightweight, and resource-friendly.</li>
+                <li>✅ Designed for modern cybersecurity challenges.</li>
+                <li>✅ Easy to set up and configure.</li>
+                <li>✅ Open-source and customizable.</li>
+            </ul>
+        </div>
+
+        <!-- Closing Section -->
+        <div class="section">
+            <h2>🌟 Get Started Today!</h2>
+            <p>Protect your system with a reliable, efficient, and lightweight EDR solution. Built by enthusiasts, for enthusiasts—our EDR project is a testament to practical, secure, and cutting-edge endpoint defense.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        © 2025 Our EDR Project | Designed for Security and Efficiency
+    </footer>
+
+</body>
+
+</html>

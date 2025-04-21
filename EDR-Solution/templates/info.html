@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Cybersecurity Vulnerabilities</title>
+
+    <!-- CSS Styling -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 36px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vulnerability-box {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            border-left: 6px solid #007BFF;
+        }
+
+        .vulnerability-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .vulnerability-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+
+        .vulnerability-description {
+            font-size: 16px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .vulnerability-title {
+                font-size: 20px;
+            }
+
+            .vulnerability-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🔐 All Alerts Description</h1>
+
+    <div class="container">
+
+        <!-- Vulnerability 1 -->
+        <div class="vulnerability-box">
+            <div class="vulnerability-title">1. Bulk File Delection</div>
+            <div class="vulnerability-description">
+                SEVERITY => LOW<br>
+                This alert arise when the EDR identifies large amount of file being deleted suddenly. To be specific more than 10 files are deleted suddenly. 
+                <br>
+                In the alert you can also see the process which as cause this alert to raise.
+            </div>
+        </div>
+
+        <!-- Vulnerability 2 -->
+        <div class="vulnerability-box">
+            <div class="vulnerability-title">2. Log File Deletion</div>
+            <div class="vulnerability-description">
+                SEVERITY => CRITICAL<br>
+                This alert arises when an attacker attempts to delete log files to clear their tracks. Since log files contain crucial records of system activities, their deletion could indicate a malicious attempt to evade detection.
+                <br>
+                In the alert, you can also see the process responsible for triggering this alert.
+            </div>
+        </div>
+
+        <!-- Vulnerability 3 -->
+        <div class="vulnerability-box">
+            <div class="vulnerability-title">3. High CPU Usage Spike</div>
+            <div class="vulnerability-description">
+                SEVERITY => MEDIUM<br>
+                This alert arises when the CPU usage goes beyond the threshold value, which can be adjusted by the user on the settings page. 
+                <br>
+                The alert also displays the top 5 processes consuming the maximum CPU resources, helping to quickly identify the cause of the spike.
+            </div>
+        </div>
+
+        <!-- Vulnerability 4 -->
+        <div class="vulnerability-box">
+            <div class="vulnerability-title">4. Insecure Connection Detected</div>
+            <div class="vulnerability-description">
+                SEVERITY => CRITICAL<br>
+                This alert arises because the EDR continuously checks all IPs connected to the system, and if it identifies a malicious IP address, it generates this alert.
+                <br>
+                <strong>Response Steps:</strong>
+                <ul>
+                    <li>Before going ahead verify the IP's reputation by yourself to avoid False-Positive.</li>
+                    <li>Disconnect from the internet immediately to isolate the threat.</li>
+                    <li>Block the malicious IP address using Windows Firewall:
+                        <ol>
+                            <li>Open Windows Defender Firewall with Advanced Security.</li>
+                            <li>Go to "Inbound Rules" or "Outbound Rules".</li>
+                            <li>Click "New Rule" and select "Custom".</li>
+                            <li>Under "Which remote IP addresses does this rule apply to?" select "These IP addresses" and add the malicious IP.</li>
+                            <li>Choose "Block the connection" and complete the wizard.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <!-- Vulnerability 5 -->
+        <!-- <div class="vulnerability-box">
+            <div class="vulnerability-title">5. Command Injection</div>
+            <div class="vulnerability-description">
+                Command Injection allows attackers to execute arbitrary commands on a host operating system via a vulnerable 
+                application. This can result in unauthorized access, data theft, and complete server compromise.
+            </div>
+        </div> -->
+
+    
+
+    </div>
+
+</body>
+
+</html>

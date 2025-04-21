@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirusTotal File Scanner</title>
+
+    <!-- CSS Styling -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            border: 2px dashed #007BFF;
+            background-color: #f8f9fa;
+            color: #007BFF;
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        #file-name {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .safe {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .malicious {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🛡️ VirusTotal File Scanner</h1>
+        <p>Upload a file to check if it's malicious or clean using the VirusTotal API.</p>
+
+        <!-- Custom File Upload Button -->
+        <label class="custom-file-upload">
+            <input type="file" id="fileInput" onchange="displayFileName()">
+            📁 Select File
+        </label>
+
+        <div id="file-name">No file selected</div>
+
+        <!-- Check File Button -->
+        <button onclick="checkFile()">🔍 Check File</button>
+
+        <!-- Result Section -->
+        <div id="result"></div>
+
+        <!-- Footer -->
+        <footer>
+            Powered by <a href="https://www.virustotal.com/" target="_blank">VirusTotal</a> API
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let selectedFile = null;
+
+        // Display selected file name
+        function displayFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const fileNameDiv = document.getElementById('file-name');
+
+            if (fileInput.files.length > 0) {
+                selectedFile = fileInput.files[0];
+                fileNameDiv.textContent = `Selected file: ${selectedFile.name}`;
+            } else {
+                selectedFile = null;
+                fileNameDiv.textContent = 'No file selected';
+            }
+        }
+
+        // Function to send file to Flask server
+        function checkFile() {
+            if (!selectedFile) {
+                alert('Please select a file first!');
+                return;
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '⏳ Scanning file... Please wait.';
+            resultDiv.className = 'loading';
+            resultDiv.style.display = 'block';
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+
+            fetch('/scan_file', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'safe') {
+                        resultDiv.innerHTML = '✅ This file is <strong>clean</strong>!';
+                        resultDiv.className = 'safe';
+                    } else if (data.status === 'malicious') {
+                        resultDiv.innerHTML = '⚠️ This file is <strong>malicious</strong>!';
+                        resultDiv.className = 'malicious';
+                    } else {
+                        resultDiv.innerHTML = '⚠️ Unable to scan the file. Please try again.';
+                        resultDiv.className = 'malicious';
+                    }
+                    resultDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultDiv.innerHTML = '⚠️ An error occurred. Please try again.';
+                    resultDiv.className = 'malicious';
+                    resultDiv.style.display = 'block';
+                });
+        }
+    </script>
+
+</body>
+
+</html>

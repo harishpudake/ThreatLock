@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert History</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4A00E0, #8E2DE2);
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 85%;
+            max-width: 900px;
+            animation: fadeIn 0.8s ease-in-out;
+            overflow-x: auto;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* Styled Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        tbody tr {
+            transition: all 0.3s ease-in-out;
+        }
+
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        /* Severity Colors */
+        .Critical { color: #FF4C4C; font-weight: bold; }
+        .High { color: #FF8C00; font-weight: bold; }
+        .Medium { color: #FFD700; font-weight: bold; }
+        .Low { color: #32CD32; font-weight: bold; }
+
+        /* Loading Animation */
+        .loader {
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🔔 Alert History</h1>
+        <div class="loader" id="loader"></div>
+        <table>
+            <thead>
+                <tr id="tableHeaders"></tr>
+            </thead>
+            <tbody id="alertTableBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchAlerts();
+        });
+
+        function fetchAlerts() {
+            const loader = document.getElementById("loader");
+            const tableHeaders = document.getElementById("tableHeaders");
+            const tableBody = document.getElementById("alertTableBody");
+
+            loader.style.display = "block"; // Show loader
+
+            fetch('http://127.0.0.1:5000/fetch-alerts')
+                .then(response => response.json())
+                .then(data => {
+                    loader.style.display = "none"; // Hide loader
+                    tableBody.innerHTML = ""; // Clear table before adding data
+                    tableHeaders.innerHTML = ""; // Clear headers
+
+                    if (data.length > 0) {
+                        const headers = Object.keys(data[0]);
+                        headers.forEach(header => {
+                            tableHeaders.innerHTML += `<th>${header}</th>`;
+                        });
+
+                        data.forEach(alert => {
+                            let row = '<tr>';
+                            headers.forEach(header => {
+                                let cellValue = alert[header];
+                                let className = "";
+
+                                // Apply severity colors
+                                if (header.toLowerCase() === "severity") {
+                                    className = cellValue;
+                                }
+
+                                row += `<td class="${className}">${cellValue}</td>`;
+                            });
+                            row += '</tr>';
+                            tableBody.innerHTML += row;
+                        });
+                    } else {
+                        tableBody.innerHTML = `<tr><td colspan="4" style="color: #FF4C4C;">⚠️ No alerts found</td></tr>`;
+                    }
+                })
+                .catch(error => {
+                    loader.style.display = "none";
+                    tableBody.innerHTML = `<tr><td colspan="4" style="color: red;">⚠️ Failed to load alerts</td></tr>`;
+                    console.error("Error fetching alerts:", error);
+                });
+        }
+    </script>
+
+</body>
+</html>
