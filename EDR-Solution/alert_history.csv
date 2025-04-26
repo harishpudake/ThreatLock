@@ -34,3 +34,63 @@ Timestamp,Title,Severity,Description
 2025-04-26 12:17:37,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
 2025-04-26 12:17:48,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
 2025-04-26 12:17:48,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
+2025-04-26 12:20:53,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
+2025-04-26 12:20:53,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
+2025-04-26 12:23:56,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:24:06,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:24:59,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:25:08,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:30:01,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:30:08,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:33:00,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 20.42.73.30
+2025-04-26 12:33:02,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:33:03,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 204.79.197.203
+2025-04-26 12:33:05,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 34.54.88.138
+2025-04-26 12:33:06,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 2603:1063:27:1::14
+2025-04-26 12:33:07,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 2603:1061:11::254
+2025-04-26 12:34:18,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 2600:9000:238c:ae00:7:7f8e:6d00:93a1
+2025-04-26 12:34:22,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 204.79.197.222
+2025-04-26 12:34:23,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 2603:1063:2000::254
+2025-04-26 12:34:25,EDR: Insecure Connection Detected,High,Malicious IP Address Detected: 54.213.78.65
