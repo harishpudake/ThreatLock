@@ -1,1 +1,36 @@
 Timestamp,Title,Severity,Description
+2025-02-21 17:59:09,"EDR: ""LOGS FILES ARE BEING DELETED""",Critical,"! File deleted = ""New folder""
+! Could not identify the process responsible for deletion."
+2025-02-21 18:00:15,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Users\pudak\Desktop\EDR (modified with databes)\EDR (1)\EDR'.
+2025-02-21 18:36:31,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: taskhostw.exe (PID: 312)
+"
+2025-02-21 18:36:39,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: taskhostw.exe (PID: 312)
+"
+2025-04-26 12:15:48,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:15:56,"EDR: ""High CPU usages detected""",Low,"Top CPU Consuming Processes:
+! Name: System Idle Process (PID: 0)
+! Name: System (PID: 4)
+! Name:  (PID: 140)
+! Name: Registry (PID: 172)
+! Name: smss.exe (PID: 676)
+"
+2025-04-26 12:17:37,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
+2025-04-26 12:17:37,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
+2025-04-26 12:17:48,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
+2025-04-26 12:17:48,"EDR: ""BULK FILE DELETION DETECTED""",Medium,! More than 10 files were deleted in 'C:\Windows\SystemTemp'.
